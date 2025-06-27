@@ -1,0 +1,52 @@
+{
+  "name": "nextjs-email-waitlist-starter",
+  "version": "1.0.0",
+  "description": "A complete, production-ready Next.js starter for building email waitlist landing pages with built-in analytics, admin dashboard, and dual integration (Supabase + ConvertKit)",
+  "keywords": [
+    "nextjs",
+    "waitlist",
+    "email-marketing",
+    "starter",
+    "template",
+    "supabase",
+    "convertkit",
+    "tailwindcss",
+    "typescript",
+    "landing-page",
+    "email-collection",
+    "analytics",
+    "dashboard"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maitrongnhan99/nextjs-email-waitlist-starter"
+  },
+  "private": false,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.2",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "lucide-react": "^0.469.0",
+    "next": "15.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "15.3.4",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^4.0.0"
+  }
+}
