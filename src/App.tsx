@@ -82,12 +82,6 @@ function App() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       </div>
 
-      {/* Remix Button */}
-      <div className="absolute top-6 right-6 z-50">
-        <button className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors">
-          Remix for free →
-        </button>
-      </div>
 
       <div className="relative z-10">
         {/* Header */}

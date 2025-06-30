@@ -127,12 +127,6 @@ export default function Home() {
         <div className="absolute inset-0 grid-pattern"></div>
       </div>
 
-      {/* Remix Button */}
-      <div className="absolute top-6 right-6 z-50">
-        <button className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors hover:scale-105 transform duration-200">
-          Remix for free →
-        </button>
-      </div>
 
       <div className="relative z-10">
         {/* Header */}

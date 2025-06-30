@@ -3,6 +3,7 @@ import { supabase } from '@/lib/supabase'
 
 const CONVERTKIT_API_SECRET = process.env.CONVERTKIT_API_SECRET
 const CONVERTKIT_FORM_ID = process.env.CONVERTKIT_FORM_ID
+const CONVERTKIT_SEQUENCE_ID = process.env.CONVERTKIT_SEQUENCE_ID
 
 export async function POST(request: NextRequest) {
   try {
@@ -114,6 +115,37 @@ export async function POST(request: NextRequest) {
               .from('waitlist')
               .update({ convertkit_subscriber_id: convertKitSubscriberId.toString() })
               .eq('id', supabaseEntry.id)
+          }
+
+          // Subscribe to sequence for welcome/verification email
+          if (CONVERTKIT_SEQUENCE_ID) {
+            try {
+              const sequenceResponse = await fetch(
+                `https://api.convertkit.com/v3/sequences/${CONVERTKIT_SEQUENCE_ID}/subscribe`,
+                {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    api_secret: CONVERTKIT_API_SECRET,
+                    email: normalizedEmail,
+                    first_name: firstName || '',
+                  }),
+                }
+              )
+
+              if (sequenceResponse.ok) {
+                console.log(`Successfully subscribed ${normalizedEmail} to welcome sequence`)
+              } else {
+                const sequenceError = await sequenceResponse.json()
+                console.error('ConvertKit Sequence Error:', sequenceError)
+                // Don't fail the entire request if sequence fails
+              }
+            } catch (sequenceError) {
+              console.error('ConvertKit sequence subscription error:', sequenceError)
+              // Don't fail the entire request if sequence fails
+            }
           }
         } else {
           console.error('ConvertKit API Error:', convertKitData)

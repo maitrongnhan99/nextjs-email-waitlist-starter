@@ -95,8 +95,12 @@ export default function CongratsModal({ isOpen, onClose, email, waitlistCount }:
               🎉 Welcome to the waitlist!
             </h2>
             
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm mb-2">
               You're now #{waitlistCount.toLocaleString()} in line! 
+            </p>
+            
+            <p className="text-gray-300 text-xs bg-blue-900/20 border border-blue-800/30 rounded-lg p-2">
+              📧 Check your email for a welcome message with more details!
             </p>
           </div>
 
